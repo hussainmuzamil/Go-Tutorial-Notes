@@ -49,6 +49,7 @@
   This creates a new string with uppercase letters, and `s` points to it. The garbage collector will remove the old string if it’s no longer used.
 
 ## Arrays, Slices & Maps
+
 ### Arrays
 - Arrays are typed by size, which is fixed at compile time.
 - Arrays are comparable.
@@ -59,12 +60,15 @@
 - Slices have variable length, backed by some array.
 - Slices are passed by reference, so no copying occurs, and updates are allowed.
 - Slices are not comparable.
-## Sample Program
-  ```package main
-     import "fmt"
-     func main() {
-         fmt.Println("slices")
-	var nums = make([]int, 2) //taking 3 args 1.type 2.size, 3.capacity
+
+#### Sample Program
+```go
+package main
+import "fmt"
+
+func main() {
+	fmt.Println("slices")
+	var nums = make([]int, 2) // taking 3 args: type, size, capacity
 	nums = append(nums, 1)
 	nums = append(nums, 2)
 	nums = append(nums, 3)
@@ -76,57 +80,53 @@
 	var nums2 = make([]int, len(nums))
 	copy(nums2, nums)
 	fmt.Println(nums2)
-	nums2 = append(nums2, 8)
-	nums2 = append(nums2, 9)
-	nums2 = append(nums2, 10)
-	nums2 = append(nums2, 11)
-	nums2 = append(nums2, 12)
-	nums2 = append(nums2, 13)
-	nums2 = append(nums2, 14)
+	nums2 = append(nums2, 8, 9, 10, 11, 12, 13, 14)
 	fmt.Println(len(nums2))
 	fmt.Println(cap(nums2))
 
 	var sliceOfSlice = nums[:3]
 	fmt.Println(sliceOfSlice)
-	} 
+}
 ```
 
 ### Maps
-- You can read from a nil map (returns the default value of the type of value), but inserting will panic.  
- ## Example:
- ```
-	  var m map[string]int // nil, no storage
-	  p := make(map[string]int) // non-nil but empty
-	  a := p["the"]  // returns 0
-	  b := m["the"]  // same thing
-	  m["and"] = 1    // PANIC - nil map
-	  m = p
-	  m["and"]++      // OK, same map as p now
-	  c := p["and"]   // returns 1
-```
-## Sample Program
-```
-	package main
-        import "fmt"
+- You can read from a nil map (returns the default value of the type of value), but inserting will panic.
 
-	func main() {
-	
-		m := make(map[string]string)
-	
-		m["name"] = "jack"
-		m["age"] = "18"
-		m["qualification"] = "bachelors"
-		fmt.Println(m["name"])
-		fmt.Println(m["age"])
-		fmt.Println(m["qualification"])
-	
-		//delete(m, "age")
-		//fmt.Println(m)
-		//clear(m)
-		//fmt.Println(m)
-	}
-
+#### Example
+```go
+var m map[string]int // nil, no storage
+p := make(map[string]int) // non-nil but empty
+a := p["the"]  // returns 0
+b := m["the"]  // same thing
+m["and"] = 1    // PANIC - nil map
+m = p
+m["and"]++      // OK, same map as p now
+c := p["and"]   // returns 1
 ```
+
+#### Sample Program
+```go
+package main
+import "fmt"
+
+func main() {
+	m := make(map[string]string)
+
+	m["name"] = "jack"
+	m["age"] = "18"
+	m["qualification"] = "bachelors"
+	fmt.Println(m["name"])
+	fmt.Println(m["age"])
+	fmt.Println(m["qualification"])
+
+	// Uncomment the lines below to test deletion and clearing.
+	// delete(m, "age")
+	// fmt.Println(m)
+	// clear(m)
+	// fmt.Println(m)
+}
+```
+
 - Maps are passed by reference, so no copying occurs, and updates are allowed.
 - The type used for the key must have `==` and `!=` defined (not slices, maps, or functions).
 
