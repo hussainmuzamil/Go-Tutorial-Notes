@@ -103,6 +103,29 @@
   m["and"]++      // OK, same map as p now
   c := p["and"]   // returns 1
   ```
+## Sample Program
+```
+	package main
+        import "fmt"
+
+	func main() {
+	
+		m := make(map[string]string)
+	
+		m["name"] = "jack"
+		m["age"] = "18"
+		m["qualification"] = "bachelors"
+		fmt.Println(m["name"])
+		fmt.Println(m["age"])
+		fmt.Println(m["qualification"])
+	
+		//delete(m, "age")
+		//fmt.Println(m)
+		//clear(m)
+		//fmt.Println(m)
+	}
+
+```
 - Maps are passed by reference, so no copying occurs, and updates are allowed.
 - The type used for the key must have `==` and `!=` defined (not slices, maps, or functions).
 
