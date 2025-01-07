@@ -59,6 +59,39 @@
 - Slices have variable length, backed by some array.
 - Slices are passed by reference, so no copying occurs, and updates are allowed.
 - Slices are not comparable.
+  ```package main
+
+import "fmt"
+
+func main() {
+
+	fmt.Println("slices")
+	var nums = make([]int, 2) //taking 3 args 1.type 2.size, 3.capacity
+	nums = append(nums, 1)
+	nums = append(nums, 2)
+	nums = append(nums, 3)
+	nums = append(nums, 4)
+	fmt.Println(nums)
+	fmt.Println(len(nums))
+	fmt.Println(cap(nums))
+
+	var nums2 = make([]int, len(nums))
+	copy(nums2, nums)
+	fmt.Println(nums2)
+	nums2 = append(nums2, 8)
+	nums2 = append(nums2, 9)
+	nums2 = append(nums2, 10)
+	nums2 = append(nums2, 11)
+	nums2 = append(nums2, 12)
+	nums2 = append(nums2, 13)
+	nums2 = append(nums2, 14)
+	fmt.Println(len(nums2))
+	fmt.Println(cap(nums2))
+
+	var sliceOfSlice = nums[:3]
+	fmt.Println(sliceOfSlice)
+} 
+```
 
 ### Maps
 - You can read from a nil map (returns the default value of the type of value), but inserting will panic.  
