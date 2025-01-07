@@ -60,12 +60,9 @@
 - Slices are passed by reference, so no copying occurs, and updates are allowed.
 - Slices are not comparable.
   ```package main
-
-import "fmt"
-
-func main() {
-
-	fmt.Println("slices")
+     import "fmt"
+     func main() {
+         fmt.Println("slices")
 	var nums = make([]int, 2) //taking 3 args 1.type 2.size, 3.capacity
 	nums = append(nums, 1)
 	nums = append(nums, 2)
@@ -90,7 +87,7 @@ func main() {
 
 	var sliceOfSlice = nums[:3]
 	fmt.Println(sliceOfSlice)
-} 
+	} 
 ```
 
 ### Maps
