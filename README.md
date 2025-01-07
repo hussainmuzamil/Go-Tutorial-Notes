@@ -59,6 +59,7 @@
 - Slices have variable length, backed by some array.
 - Slices are passed by reference, so no copying occurs, and updates are allowed.
 - Slices are not comparable.
+## Sample Program
   ```package main
      import "fmt"
      func main() {
@@ -92,17 +93,17 @@
 
 ### Maps
 - You can read from a nil map (returns the default value of the type of value), but inserting will panic.  
-  Example:
-  ```go
-  var m map[string]int // nil, no storage
-  p := make(map[string]int) // non-nil but empty
-  a := p["the"]  // returns 0
-  b := m["the"]  // same thing
-  m["and"] = 1    // PANIC - nil map
-  m = p
-  m["and"]++      // OK, same map as p now
-  c := p["and"]   // returns 1
-  ```
+ ## Example:
+	  ```go
+	  var m map[string]int // nil, no storage
+	  p := make(map[string]int) // non-nil but empty
+	  a := p["the"]  // returns 0
+	  b := m["the"]  // same thing
+	  m["and"] = 1    // PANIC - nil map
+	  m = p
+	  m["and"]++      // OK, same map as p now
+	  c := p["and"]   // returns 1
+	  ```
 ## Sample Program
 ```
 	package main
