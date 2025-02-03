@@ -90,7 +90,7 @@ func main() {
 ```
 
 ### Maps
-- You can read from a nil map (returns the default value of the type of value), but inserting will panic.
+- You can read from a nil map (returns the default value of the type of value), but inserting will cause panic.
 
 #### Example
 ```go
